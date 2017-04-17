@@ -6,18 +6,9 @@
                                             'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    /
-      [if 1t IE 9] >
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      <![endif]
+    = render 'layouts/shim'
   %body
-    %header.navbar.navbar-fixed-top.navbar-inverse
-      .container
-        = link_to "sample app", "#", id: "logo"
-        %nav
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Home", "#"
-            %li= link_to "Help", "#"
-            %li= link_to "Login", "#"
+    = render 'layouts/header'
     .container
       = yield
+      = render 'layouts/footer'
