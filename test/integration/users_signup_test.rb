@@ -21,8 +21,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password_confirmation: "foobar" }
     end
     assert_template 'users/show'
+    assert is_logged_in?
     assert_select 'div#<error_explanation>'
     assert_select 'div.<field_with_errors>'
-    assert_not flash.nil?
+    assert_not flash.empty?
   end
 end
